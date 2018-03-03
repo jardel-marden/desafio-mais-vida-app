@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Medicos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-fab edge right top>
+    <button ion-fab mini color="primary" navPush="NovoMedicoPage">
+      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-searchbar (ionInput)="filter($event)" placeholder="buscar médicos..."></ion-searchbar>
+
+  <ion-list>
+    <ion-item class="animated bounceInRight" *ngFor="let item of medicos">
+      <h3 ion-text text-uppercase><strong>{{item.nome.concat(' ').concat(item.sobrenome)}}</strong></h3>
+      <p>{{item.email}}</p>
+      <button ion-button clear small (tap)="moreMedico(item)" item-end>
+        <ion-icon ion-color color="primary" name="md-more"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

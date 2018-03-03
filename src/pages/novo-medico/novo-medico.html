@@ -1,0 +1,68 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{medico.id ? 'Atualizar' : 'Cadastrar'}} Médico</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-fab edge right top>
+    <button ion-fab mini color="primary" (tap)="cadastrarOrAtualizar()">
+      <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label color="primary" floating>Nome</ion-label>
+      <ion-input [(ngModel)]="medico.nome" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>sobrenome</ion-label>
+      <ion-input [(ngModel)]="medico.sobrenome" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>E-mail</ion-label>
+      <ion-input [(ngModel)]="medico.email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Especialidade</ion-label>
+      <ion-select [(ngModel)]="medico.especialidade" interface="md">
+        <ion-option *ngFor="let especialidade of especialidades" [value]="especialidade.key">{{especialidade.value}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary"> Ativo</ion-label>
+      <ion-toggle [(ngModel)]="medico.ativo"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Status</ion-label>
+      <ion-select [(ngModel)]="medico.status" interface="md">
+        <ion-option value="OCULPADO">Oculpado</ion-option>
+        <ion-option value="DISPONIVEL">Disponível</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Estado</ion-label>
+      <ion-select [(ngModel)]="uf" interface="md" (ionChange)="filterCidade()">
+        <ion-option *ngFor="let estado of estados" [value]="estado">{{estado.sigla}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Cidade</ion-label>
+      <ion-select [(ngModel)]="cidade" interface="md">
+        <ion-option *ngFor="let cidade of cidades" [value]="cidade">{{cidade.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

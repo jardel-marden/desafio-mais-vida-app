@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{medico.nome}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label color="primary" floating>Nome</ion-label>
+      <ion-input disabled="true" [(ngModel)]="medico.nome" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>sobrenome</ion-label>
+      <ion-input disabled="true" [(ngModel)]="medico.sobrenome" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>E-mail</ion-label>
+      <ion-input disabled="true" [(ngModel)]="medico.email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" floating>Especialidade</ion-label>
+      <ion-input disabled="true" [(ngModel)]="medico.especialidade" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary"> Ativo</ion-label>
+      <ion-toggle disabled="true" [(ngModel)]="medico.ativo"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Status</ion-label>
+      <ion-select disabled="true" [(ngModel)]="medico.status" interface="md">
+        <ion-option value="OCULPADO">Oculpado</ion-option>
+        <ion-option value="DISPONIVEL">Disponível</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Estado</ion-label>
+      <ion-input readonly="true" [(ngModel)]="medico.uf" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Cidade</ion-label>
+      <ion-input readonly="true" [(ngModel)]="medico.cidade" type="text"></ion-input>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
